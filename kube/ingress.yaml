@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nest-starter-ingress
+  namespace: nest-starter
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: fullstack.staging.cbgtech.net
+    http:
+      paths:
+      - backend:
+          serviceName: nest-starter
+          servicePort: 80

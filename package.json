@@ -1,0 +1,16 @@
+{
+  "name": "starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:install": "./script/00-install-dev.sh",
+    "dev:up": "docker-compose -f docker/docker-compose.dev.yml up",
+    "dev:down": "docker-compose -f docker/docker-compose.dev.yml down",
+    "dev:uninstall": "docker-compose -f docker/docker-compose.dev.yml down --rmi all",
+    "dev:connect:api": "docker exec -it docker_api_1 /bin/sh",
+    "dev:connect:db": "psql -h localhost -p 5431 -U myappuser -d myappdb"
+  },
+  "author": "",
+  "license": "ISC"
+}

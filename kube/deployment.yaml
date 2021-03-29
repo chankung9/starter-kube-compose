@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nest-deployment
+  namespace: nest-starter
+  labels:
+    app: nest-starter
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nest-starter
+  template:
+    metadata:
+      labels:
+        app: nest-starter
+    spec:
+      containers:
+      - name: nest-starter
+        image: chankung9/nest-start:0.0.5
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: regcred
